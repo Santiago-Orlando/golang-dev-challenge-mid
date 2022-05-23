@@ -20,21 +20,21 @@ func main() {
 		return
 	}
 
-	filename := strings.Split(URL, "/")
-	name := "data/" + filename[len(filename) - 1]
-	
+	URLSplit := strings.Split(URL, "/")
+	path := "data/" + URLSplit[len(URLSplit) - 1]
+
 	data, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	err = ioutil.WriteFile(name, data, 0770)
+	err = ioutil.WriteFile(path, data, 0770)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
 
-	fmt.Println("File " + name + " downloaded")
+	fmt.Println("File " + path + " downloaded")
 }
